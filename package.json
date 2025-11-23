@@ -7,7 +7,8 @@
     "watch": "rollup -c -w",
     "format": "npx prettier --write .",
     "lint": "npx eslint .",
-    "lint:fix": "npx eslint --fix ."
+    "lint:fix": "npx eslint --fix .",
+    "test": "node test/getinfo.test.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
