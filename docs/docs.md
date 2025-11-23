@@ -1,11 +1,11 @@
-# QuickExtension
-
-```yaml
+```
 icon: ./icon.svg
 title: QuickExtension Documentation
 version: 1.0.0
 banner: https://images.unsplash.com/photo-1708533548050-16703eff12ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ```
+
+# QuickExtension
 
 This template is designed for **developers** and **Scratch/TurboWarp enthusiasts** who want to quickly create and manage a new **TurboWarp extension**.
 
