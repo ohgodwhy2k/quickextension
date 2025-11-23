@@ -1330,7 +1330,12 @@
 
             if (!strippedText && text.trim().length > 0) {
               // Fallback for tags like <head>
-              strippedText = text.replace(/<[^>]*>/g, "");
+              let lastText;
+              do {
+                lastText = text;
+                text = text.replace(/<[^>]*>/g, "");
+              } while (text !== lastText);
+              strippedText = text;
             }
 
             // Final fallback for slug
