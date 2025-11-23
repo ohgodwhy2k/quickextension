@@ -11,4 +11,4 @@ class MyExtension {
   }
 }
 
-Scratch.register(new MyExtension());
+Scratch.extensions.register(new MyExtension());
