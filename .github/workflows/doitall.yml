@@ -46,6 +46,7 @@ jobs:
           commit_author: "GitHub Actions Bot <github-actions-bot@users.noreply.github.com>"
           file_pattern: .
           create_branch: true
+          push_options: "--force"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
