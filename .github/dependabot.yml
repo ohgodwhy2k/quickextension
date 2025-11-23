@@ -3,9 +3,9 @@ version: 2
 updates:
   # 1. TurboWarp Extension Dependencies
   - package-ecosystem: "npm" # Assumes JavaScript/Node.js dependencies
-    directory: "/src/"       # Looks for package.json/package-lock.json in the source directory
+    directory: "/src/" # Looks for package.json/package-lock.json in the source directory
     schedule:
-      interval: "weekly"     # Check for updates every week
+      interval: "weekly" # Check for updates every week
     labels:
       - "dependencies"
       - "extension"
