@@ -1,3 +1,11 @@
+```
+icon: ./icon.svg
+title: Redline Documentation
+version: 1.0.0
+banner: https://images.unsplash.com/photo-1708533548050-16703eff12ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+color: #a0a0a0
+```
+
 # TurboWarp Extension Template
 
 > A professional starter template designed to streamline the development of TurboWarp extensions.
