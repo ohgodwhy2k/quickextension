@@ -3,18 +3,14 @@ class MyExtension {
     // any instance state can go here
   }
 
-  // Implementation functions that will be called by the runtime.
   sayHello() {
     return "Hello, world!";
   }
 
   echo(value) {
-    // Demonstrates a reporter that echoes back its input
-    // Ensure we return a string or number expected by Scratch
     return typeof value === "undefined" ? "" : String(value);
   }
 
-  // getInfo returns the extension metadata the Scratch/TurboWarp runtime expects.
   getInfo() {
     return {
       id: "myextension",
@@ -40,7 +36,6 @@ class MyExtension {
     };
   }
 
-  // Map opcodes to implementation names for the runtime
   sayHelloOpcode() {
     return this.sayHello();
   }
@@ -51,14 +46,10 @@ class MyExtension {
   }
 }
 
-// ---------------------------
-// NEW: ESM default export
-// ---------------------------
+// ESM default export
 export default MyExtension;
 
-// ---------------------------
-// Keep CommonJS compatibility
-// ---------------------------
+// CommonJS compatibility
 if (typeof module !== "undefined" && module.exports) {
   module.exports = MyExtension;
 }
@@ -73,9 +64,7 @@ try {
       echo: (args) => inst.echo(args && args.VALUE)
     });
   }
-} 
-
-catch {
-    console.warn("Scratch runtime not found.");
-    console.warn("Aborted registration.");
+} catch {
+  console.warn("Scratch runtime not found.");
+  console.warn("Aborted registration.");
 }
