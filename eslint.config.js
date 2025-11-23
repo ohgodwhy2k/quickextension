@@ -1,74 +1,87 @@
-module.exports = {
-    root: true,
+import globals from "globals";
+import js from "@eslint/js";
+import jsdoc from "eslint-plugin-jsdoc";
+import prettier from "eslint-config-prettier";
+
+export default [
+    js.configs.recommended,
     
-    env: {
-        browser: false, // Default to false
-        node: true,
-        es2021: true
-    },
-    
-    extends: [
-        'eslint:recommended',
-        'plugin:jsdoc/recommended',
-        'prettier' 
-    ],
-    
-    rules: {
-        'quotes': ['error', 'single'],
-        'semi': ['error', 'always'],
-        'prefer-const': 'error',
-        'jsdoc/require-returns-description': 'off',
-        'jsdoc/require-param-description': 'off',
+    {
+        plugins: {
+            jsdoc,
+        },
+        rules: {
+            ...jsdoc.configs.recommended.rules,
+            "jsdoc/require-returns-description": "off",
+            "jsdoc/require-param-description": "off",
+        },
     },
 
-    overrides: [
-        {
-            files: ['src/**/*.js', 'src/**/*.mjs'],
-            env: {
-                browser: true, // It runs in the browser context
-                node: false,
-                es2021: true
+    {
+        languageOptions: {
+            globals: {
+                ...globals.node,
+                ...globals.es2021
             },
             parserOptions: {
-                sourceType: 'module',
-                ecmaVersion: 2021
-            },
-            rules: {
-                'no-undef': 'error',
-                'jsdoc/require-jsdoc': 'off',
+                ecmaVersion: 2021,
+                sourceType: "module",
             }
         },
-        
-        {
-            files: ['docs/**/*.js'],
-            env: {
-                browser: true,
-                node: false,
-                es2021: true
-            },
-            parserOptions: {
-                sourceType: 'script',
-                ecmaVersion: 2021
-            },
-            rules: {
-                'no-undef': 'off',
-            }
-        },
-
-        {
-            files: ['*.config.js', 'rollup.config.js'],
-            env: {
-                browser: false,
-                node: true
-            },
-            parserOptions: {
-                sourceType: 'script', // or 'module' if using ESM syntax in configs
-                ecmaVersion: 2021
-            },
-            rules: {
-                'no-console': 'off',
-                'jsdoc/require-jsdoc': 'off',
-            }
+        rules: {
+            "quotes": ["error", "single"],
+            "semi": ["error", ";"],
+            "prefer-const": "error",
         }
-    ]
-};
+    },
+
+    {
+        files: ["src/**/*.js", "src/**/*.mjs"],
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.es2021
+            },
+            parserOptions: {
+                sourceType: "module",
+            }
+        },
+        rules: {
+            "jsdoc/require-jsdoc": "off",
+        }
+    },
+
+    {
+        files: ["docs/**/*.js"],
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.es2021
+            },
+            parserOptions: {
+                sourceType: "script", // Often simple, non-module scripts
+            }
+        },
+        rules: {
+            "no-undef": "off",
+        }
+    },
+
+    {
+        files: ["*.config.js"],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+            parserOptions: {
+                sourceType: "script", 
+            }
+        },
+        rules: {
+            "no-console": "off", // Allow console.log in config files
+            "jsdoc/require-jsdoc": "off",
+        }
+    },
+
+    prettier,
+];
