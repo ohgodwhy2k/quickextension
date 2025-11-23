@@ -74,5 +74,5 @@ try {
     });
   }
 } catch (e) {
-  console.warn("Scratch runtime not found — skipping registration.");
+    console.warn("Scratch runtime not found — skipping registration.");
 }
