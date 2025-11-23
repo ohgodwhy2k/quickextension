@@ -8,7 +8,6 @@ on:
 jobs:
   format-and-lint:
     if: contains(github.event.head_commit.message, '[dia]')
-
     runs-on: ubuntu-latest
 
     permissions:
@@ -37,10 +36,22 @@ jobs:
       - name: Fix linting errors
         run: npm run lint:fix
 
-      - name: Commit and push changes
+      - name: Commit and push changes to auto branch
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          branch: auto/lint
           commit_message: "chore(dia): Auto-format and lint files [skip ci]"
           commit_user_name: "GitHub Actions Bot"
           commit_user_email: "github-actions-bot@users.noreply.github.com"
           commit_author: "GitHub Actions Bot <github-actions-bot@users.noreply.github.com>"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(dia): Auto-format and lint files [skip ci]"
+          branch: auto/lint
+          base: main
+          title: "Auto-format & lint fixes"
+          body: "This PR applies automatic formatting and lint fixes."
+          labels: "auto-lint"
