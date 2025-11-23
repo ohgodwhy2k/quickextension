@@ -19,7 +19,7 @@ class MyExtension {
         {
           opcode: "sayHello",
           blockType: "reporter",
-          text: "say hello"
+          text: "say hello",
         },
         {
           opcode: "echo",
@@ -28,11 +28,11 @@ class MyExtension {
           arguments: {
             VALUE: {
               type: "string",
-              defaultValue: "hello"
-            }
-          }
-        }
-      ]
+              defaultValue: "hello",
+            },
+          },
+        },
+      ],
     };
   }
 
@@ -56,12 +56,16 @@ if (typeof module !== "undefined" && module.exports) {
 
 // Register with TurboWarp runtime if present
 try {
-  if (typeof Scratch !== "undefined" && Scratch.extensions && typeof Scratch.extensions.register === "function") {
+  if (
+    typeof Scratch !== "undefined" &&
+    Scratch.extensions &&
+    typeof Scratch.extensions.register === "function"
+  ) {
     const inst = new MyExtension();
     Scratch.extensions.register({
       getInfo: () => inst.getInfo(),
       sayHello: () => inst.sayHello(),
-      echo: (args) => inst.echo(args && args.VALUE)
+      echo: (args) => inst.echo(args && args.VALUE),
     });
   }
 } catch {
