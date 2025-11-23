@@ -2,62 +2,107 @@
 
 This template is designed for **developers** and **Scratch/TurboWarp enthusiasts** who want to quickly create and manage a new **TurboWarp extension**.
 
-It provides a modern development environment with **linting, code formatting, bundling, and testing** out-of-the-box, allowing you to focus purely on your extension's logic.
+It provides a modern development environment with **linting, code formatting, bundling, and testing** out of the box, allowing you to focus purely on your extension's logic.
 
-## Node Scripts (`npm`)
+# How to Use This Template
+
+1. Click **"Use this template"**.
+2. Click **"Create a new repository"**.
+3. Name your repository and add a description.
+4. Choose visibility (public/private).
+5. Click **"Create repository"**.
+6. Read the rest of the README & documentation.
+7. **You're ready to start developing your extension!**
+
+# Features
+
+1. ✔ Automated builds using **Rollup**
+2. ✔ **ESLint** + **Prettier** integration
+3. ✔ **Node test runner** (built-in)
+4. ✔ **GitHub Actions** (build, lint, test, release)
+5. ✔ Simple and clean extension entry point
+
+# Project Structure
+
+```
+/
+├─ src/
+│  └─ main.js
+├─ tests/
+│  └─ getInfo.test.js
+├─ docs/
+│  └─ ...
+├─ .github/workflows/
+│  └─ ...
+├─ rollup.config.js
+├─ package.json
+└─ README.md
+```
+
+---
+
+# Node Scripts (`npm`)
 
 Use these commands to manage and prepare your extension for use.
 
-| Command                | Description                                                                                              |
-| :--------------------- | :------------------------------------------------------------------------------------------------------- |
-| `npm run **build**`    | Bundles your source code into the final, optimized extension file using **Rollup**.                      |
-| `npm run **watch**`    | Starts Rollup in **watch mode**. It automatically rebuilds the extension whenever a source file changes. |
-| `npm run **format**`   | Formats all code files using **Prettier** to ensure consistent style across the repository.              |
-| `npm run **lint**`     | Runs **ESLint** to check the code for potential errors and style violations.                             |
-| `npm run **lint:fix**` | Runs ESLint and automatically **fixes** many of the detected issues.                                     |
-| `npm run **test**`     | Executes the test suite, specifically running the `tests/getInfo.test.js` script.                        |
+| Command            | Description                                                                               |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| `npm run build`    | Bundles your source code into the final optimized extension file using **Rollup**.        |
+| `npm run watch`    | Starts Rollup in **watch mode** — automatically rebuilds when files change.               |
+| `npm run format`   | Formats all code files using **Prettier** for consistent style.                           |
+| `npm run lint`     | Runs **ESLint** to check for errors and style issues.                                     |
+| `npm run lint:fix` | Runs ESLint and automatically fixes applicable issues.                                    |
+| `npm run test`     | Executes the test suite using Node’s built-in test runner (runs `tests/getInfo.test.js`). |
 
-## Dependencies
+# Dependencies
 
 These packages provide the tooling necessary to build, format, and maintain your extension:
 
-- `rollup`, `@rollup/plugin-commonjs`, `@rollup/plugin-node-resolve`: The **module bundler** and its essential plugins for compiling your JavaScript source code into a single distribution file.
-- `eslint`, `@eslint/js`, `eslint-plugin-jsdoc`, `globals`: The **linter** for maintaining code quality and catching errors.
-- `prettier`, `eslint-config-prettier`: The **code formatter** to enforce consistent style.
+* **Rollup**:
+  `rollup`, `@rollup/plugin-commonjs`, `@rollup/plugin-node-resolve`
+  *(Module bundling and plugin support)*
 
-## Keeping Up to Date
+* **ESLint**:
+  `eslint`, `@eslint/js`, `eslint-plugin-jsdoc`, `globals`
+  *(Code quality and error checking)*
 
-If you created your repository from this template and want to pull in future updates or fixes from the original template, you can set this repository as a new remote and then cherry-pick specific commits.
+* **Prettier**:
+  `prettier`, `eslint-config-prettier`
+  *(Code formatting and style consistency)*
 
-### 1. Add the Template as a New Remote
+# Keeping Up to Date
 
-Run these commands in your local repository to name the template repository `upstream`:
+If you created your repository from this template and want to pull in future updates or fixes, you can add the template repo as an additional remote and cherry-pick commits as needed.
+
+## 1. Add the Template as a New Remote
 
 ```bash
-git remote add upstream https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+git remote add upstream https://github.com/ohgodwhy2k/quickextension.git
 git fetch upstream
 ```
 
-### 2\. Pulling and Cherry-Picking Changes
+## 2. Pulling and Cherry-Picking Changes
 
-- To see the changes available in the template:
+### View upstream commits:
 
-  ```bash
-  git log upstream/main
-  ```
+```bash
+git log upstream/main
+```
 
-  _(Look for the commit hash of the change you want to integrate)_
+(Look for the commit hash you want to integrate.)
 
-- To apply a **specific commit** from the template to your repository:
+### Cherry-pick a specific commit:
 
-  ```bash
-  git cherry-pick [commit-hash]
-  ```
+```bash
+git cherry-pick <commit-hash>
+```
 
-  _Replace `[commit-hash]` with the actual commit identifier._
+Replace `<commit-hash>` with the actual commit ID.
 
-- To merge all upstream changes (use with caution, as it may cause conflicts):
+### Merge all upstream changes (⚠ may cause conflicts):
 
-  ```bash
-  git pull upstream main
-  ```
+```bash
+git pull upstream main
+```
+
+> **TODO (Future Idea):** Add an automated npm script to fetch/pull upstream changes.
