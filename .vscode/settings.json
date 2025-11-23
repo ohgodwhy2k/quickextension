@@ -4,7 +4,5 @@
     ".github/workflows/*.yaml": "github-actions-workflow"
   },
 
-  "yaml.exclude": [
-    ".github/workflows/*"
-  ]
+  "yaml.exclude": [".github/workflows/*"]
 }
