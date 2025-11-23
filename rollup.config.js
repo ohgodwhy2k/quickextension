@@ -7,8 +7,14 @@ export default {
     // The single file to be generated
     file: "dist/extension.js",
     // 'iife' stands for Immediately Invoked Function Expression
-    // This wraps your code so it doesn't leak variables into the global window
     format: "iife",
+
+    // **REQUIRED FOR EXTENSIONS:** The global variable name for IIFE format.
+    // This allows the runtime to execute your code and pass the Scratch object.
+    name: "ScratchExtensions",
+
+    // **RECOMMENDED:** Include a sourcemap for easier debugging.
+    sourcemap: true,
   },
   plugins: [
     resolve(), // Allows you to import other files easily
