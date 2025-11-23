@@ -1,5 +1,7 @@
 # Contributing to QuickExtension
 
+> If you've forked/used this as a template, change this to the contributing policy that you want.
+
 ## Branch naming
 
 To keep our Git history clean and easily searchable, all branches must follow the `type/issue-id-description` convention.
