@@ -8,22 +8,22 @@ It provides a modern development environment with **linting, code formatting, bu
 
 Use these commands to manage and prepare your extension for use.
 
-| Command | Description |
-| :--- | :--- |
-| `npm run **build**` | Bundles your source code into the final, optimized extension file using **Rollup**. |
-| `npm run **watch**` | Starts Rollup in **watch mode**. It automatically rebuilds the extension whenever a source file changes. |
-| `npm run **format**` | Formats all code files using **Prettier** to ensure consistent style across the repository. |
-| `npm run **lint**` | Runs **ESLint** to check the code for potential errors and style violations. |
-| `npm run **lint:fix**` | Runs ESLint and automatically **fixes** many of the detected issues. |
-| `npm run **test**` | Executes the test suite, specifically running the `tests/getInfo.test.js` script. |
+| Command                | Description                                                                                              |
+| :--------------------- | :------------------------------------------------------------------------------------------------------- |
+| `npm run **build**`    | Bundles your source code into the final, optimized extension file using **Rollup**.                      |
+| `npm run **watch**`    | Starts Rollup in **watch mode**. It automatically rebuilds the extension whenever a source file changes. |
+| `npm run **format**`   | Formats all code files using **Prettier** to ensure consistent style across the repository.              |
+| `npm run **lint**`     | Runs **ESLint** to check the code for potential errors and style violations.                             |
+| `npm run **lint:fix**` | Runs ESLint and automatically **fixes** many of the detected issues.                                     |
+| `npm run **test**`     | Executes the test suite, specifically running the `tests/getInfo.test.js` script.                        |
 
 ## Dependencies
 
 These packages provide the tooling necessary to build, format, and maintain your extension:
 
-  * `rollup`, `@rollup/plugin-commonjs`, `@rollup/plugin-node-resolve`: The **module bundler** and its essential plugins for compiling your JavaScript source code into a single distribution file.
-  * `eslint`, `@eslint/js`, `eslint-plugin-jsdoc`, `globals`: The **linter** for maintaining code quality and catching errors.
-  * `prettier`, `eslint-config-prettier`: The **code formatter** to enforce consistent style.
+- `rollup`, `@rollup/plugin-commonjs`, `@rollup/plugin-node-resolve`: The **module bundler** and its essential plugins for compiling your JavaScript source code into a single distribution file.
+- `eslint`, `@eslint/js`, `eslint-plugin-jsdoc`, `globals`: The **linter** for maintaining code quality and catching errors.
+- `prettier`, `eslint-config-prettier`: The **code formatter** to enforce consistent style.
 
 ## Keeping Up to Date
 
@@ -40,24 +40,24 @@ git fetch upstream
 
 ### 2\. Pulling and Cherry-Picking Changes
 
-  * To see the changes available in the template:
+- To see the changes available in the template:
 
-    ```bash
-    git log upstream/main
-    ```
+  ```bash
+  git log upstream/main
+  ```
 
-    *(Look for the commit hash of the change you want to integrate)*
+  _(Look for the commit hash of the change you want to integrate)_
 
-  * To apply a **specific commit** from the template to your repository:
+- To apply a **specific commit** from the template to your repository:
 
-    ```bash
-    git cherry-pick [commit-hash]
-    ```
+  ```bash
+  git cherry-pick [commit-hash]
+  ```
 
-    *Replace `[commit-hash]` with the actual commit identifier.*
+  _Replace `[commit-hash]` with the actual commit identifier._
 
-  * To merge all upstream changes (use with caution, as it may cause conflicts):
+- To merge all upstream changes (use with caution, as it may cause conflicts):
 
-    ```bash
-    git pull upstream main
-    ```
+  ```bash
+  git pull upstream main
+  ```

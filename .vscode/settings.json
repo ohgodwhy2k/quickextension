@@ -1,5 +1,3 @@
 {
-    "markdownlint.ignore": [
-        "**/docs/docs.md"
-    ]
+  "markdownlint.ignore": ["**/docs/docs.md"]
 }
