@@ -4,8 +4,8 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "format": "prettier --write .",
-    "lint:fix": "eslint --fix ."
+    "format": "npx prettier --write .",
+    "lint:fix": "npx eslint --fix ."
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
