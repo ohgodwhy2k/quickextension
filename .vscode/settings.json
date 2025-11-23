@@ -1,8 +1,0 @@
-{
-  "files.associations": {
-    ".github/workflows/*.yml": "github-actions-workflow",
-    ".github/workflows/*.yaml": "github-actions-workflow"
-  },
-
-  "yaml.exclude": [".github/workflows/*"]
-}
