@@ -73,6 +73,8 @@ try {
       echo: (args) => inst.echo(args && args.VALUE)
     });
   }
-} catch (e) {
+} 
+
+catch (e) {
     console.warn("Scratch runtime not found — skipping registration.");
 }
