@@ -11,4 +11,4 @@ class MyExtension {
   }
 }
 
-TurboWarp.register(new MyExtension());
+Scratch.register(new MyExtension());
