@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "format": "prettier --write .",
+    "lint:fix": "eslint --fix ."
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
