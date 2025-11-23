@@ -1,0 +1,54 @@
+name: Build extension
+
+on:
+  pull_request:
+    branches: ["main"]
+    types: [opened, synchronize, reopened]
+
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        # Installs packages from package.json, including rollup and plugins
+        run: npm install
+
+      - name: Clean & build extension
+        # This step performs the cleanup and the build in sequence
+        run: |
+          # 1. Remove the old /dist directory (ensures a clean build)
+          echo "Removing old dist directory..."
+          rm -rf dist/
+
+          # 2. Run the Rollup build script
+          echo "Building the extension..."
+          npm run build
+
+          # 3. Verify the built file exists
+          if [ -f "dist/extension.js" ]; then
+            echo "Build successful: dist/extension.js created."
+          else
+            echo "[!] Build failed: dist/extension.js not found."
+            exit 1
+          fi
+
+      - name: Upload artifact (for review/release)
+        # Makes the built extension file available for download in the workflow summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: turbowarp-extension-build
+          path: dist/
+          if-no-files-found: error
