@@ -75,7 +75,7 @@ try {
   }
 } 
 
-catch (e) {
+catch {
     console.warn("Scratch runtime not found.");
     console.warn("Aborted registration.");
 }

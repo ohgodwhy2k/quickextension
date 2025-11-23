@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 // Resolve directory paths in ESM
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __dirname = path.dirname(__filename);
 
 // Import extension using ESM syntax
 import MyExtension from "../src/index.js";
