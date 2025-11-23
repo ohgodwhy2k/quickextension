@@ -45,4 +45,4 @@ jobs:
         with:
           name: turbowarp-extension-build
           path: dist/
-          if-no-files-found: erro
+          if-no-files-found: error
