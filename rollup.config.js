@@ -1,22 +1,32 @@
 import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs"; // Added for bundling local files
 
 export default {
-  // The main file that imports all your other files
+  // The entry point for your extension code
   input: "src/index.js",
+
   output: {
-    // The single file to be generated
+    // The path and filename for the final bundled extension
     file: "dist/extension.js",
-    // 'iife' stands for Immediately Invoked Function Expression
+
+    // The format required for browser-based extensions
     format: "iife",
 
-    // **REQUIRED FOR EXTENSIONS:** The global variable name for IIFE format.
-    // This allows the runtime to execute your code and pass the Scratch object.
+    // **CRITICAL:** Names the IIFE wrapper, which the Scratch/TurboWarp runtime
+    // uses to execute your extension code and pass the Scratch API object.
     name: "ScratchExtensions",
 
-    // **RECOMMENDED:** Include a sourcemap for easier debugging.
+    // RECOMMENDED: Generates a sourcemap for easier debugging in the browser console.
     sourcemap: true,
   },
+
   plugins: [
-    resolve(), // Allows you to import other files easily
+    // 1. Must be listed before 'resolve' to correctly parse different module types
+    // and bundle them into the single output file.
+    commonjs(),
+
+    // 2. Allows you to import files from 'node_modules' (though less common
+    // for simple extensions, it's good practice).
+    resolve(),
   ],
 };
