@@ -44,6 +44,7 @@ jobs:
           commit_user_name: "GitHub Actions Bot"
           commit_user_email: "github-actions-bot@users.noreply.github.com"
           commit_author: "GitHub Actions Bot <github-actions-bot@users.noreply.github.com>"
+          create_branch: true
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
