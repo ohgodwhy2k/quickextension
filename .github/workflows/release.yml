@@ -27,9 +27,17 @@ jobs:
       - name: Run build script
         run: npm run build
 
+      # --- DEBUG STEP ADDED ---
+      - name: List Output Files
+        run: |
+          echo "Checking contents of dist/ directory:"
+          ls -l dist/
+        # ------------------------
+
       - name: Release!
         uses: softprops/action-gh-release@v1
         with:
+          # Changed from "./dist/extension.js" to "dist/extension.js"
           files: "dist/extension.js"
 
           prerelease: ${{ contains(github.ref, 'beta') || contains(github.ref, 'alpha') || contains(github.ref, 'rc') }}
