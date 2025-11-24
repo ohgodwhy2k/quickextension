@@ -1,4 +1,6 @@
 name: Test It All
+permissions:
+  contents: read
 
 on:
   push:
